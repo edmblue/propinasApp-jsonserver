@@ -1,17 +1,4 @@
-// usar some para validar el formulario
-//alert invalid-feedback d-block text-center
-//al usar el spread operator puedo copiar un objeto y despues llenar las propiedades al mismo timepo
-//Modal.getInstance
 
-//row = DIV.row.py-3.border-top -> nombre = DIV.col-md-4 | precio = DIV.col-md-3.fw-bold |categoria = DIV.col-md-3--------------comimda - bebidas - postres
-
-//type = number min input.form-control col-md-2
-
-// resumen = DIV.col-md-6 -> mesa = p.fw-bold mesaSpan.fw.normal
-
-// name-cheked
-
-//Variables
 
 const guardarCliente = document.querySelector('#guardar-cliente');
 const modal = new bootstrap.Modal('#formulario');
@@ -60,7 +47,7 @@ function submitCliente() {
 }
 
 function llenarPlatillosHTML() {
-  fetch('http://localhost:4000/platillos')
+  fetch('https://my-json-server.typicode.com/edmblue/propinasApp-jsonserver/platillos')
     .then((respuesta) => respuesta.json())
     .then((resultado) => llenarPlatillos(resultado));
 }
