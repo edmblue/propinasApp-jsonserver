@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Propinas y Consumos</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+</head>
+<body>
+    <header class="py-4 bg-primary">
+        <h1 class="text-center text-white fs-3">Calculadora de Consumos y Propinas</h1>
+    </header>
+    
+    <div class="d-flex mt-4 justify-content-center">
+        <button  data-bs-toggle="modal" data-bs-target="#formulario" type="button" class="btn btn-success">Nueva Orden</button>
+    </div>
+
+
+    <main id="platillos" class="container bg-light mt-5 p-4 d-none">
+        <h2  class="text-center my-4">Platillos</h2>
+
+        <div class="contenido"></div>
+    </main>
+
+    
+    <section id="resumen" class="resumen bg-light container mt-5 p-4 d-none">
+        <h2 class="text-center my-4">Resumen De Consumo </h2>
+
+        <div class="contenido row">
+            <p class="text-center">Añade los elementos del pedido</p>
+        </div>
+    </section>
+
+    <!-- Modal -->
+        <div class="modal fade" id="formulario">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h2 class="modal-title"">Restaurant App</h2>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="mb-3">
+                                <label class="form-label">Mesa</label>
+                                <input id="mesa" type="number" class="form-control" min="1" max="8" value="1">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Hora</label>
+                                <input id="hora" type="time" class="form-control" value="10:10">
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                        <button id="guardar-cliente" type="button" class="btn btn-primary">Crear Orden</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    <template class="lista-platillos">
+        <div class="row border-top">
+            <div class="col-md-4 py-3 nombre-platillo"></div>
+            <div class="col-md-3 py-3 fw-bold precio-platillo"></div>
+            <div class="col-md-3 py-3 categoria-platillo"></div>
+            <div class="col-md-2 py-3 cantidad-platillo">
+                <input type="number" min="0" class="form-control" value="0">
+            </div>
+        </div>
+    </template>    
+
+    <template class="platillos-pedidos"> 
+        <div class="card col-md-6 shadow">
+        <h3 class="my-3">Platillos Pedidos</h3>
+        <p class="mesa-numero fw-bold">Mesa: <span class="fw-normal"></span></p>
+        <p class="hora fw-bold" fw-bold">Hora: <span class="fw-normal"></span></p>
+        <ul class="list-group"></ul>
+        </div>
+    </template>
+
+    <template class="calcular-propina"> 
+        <div class="card col-md-6 shadow">
+            <h3 class="my-3">Total a Pagar</h3>
+            <div class="form-check my-2">
+                <label>10%</label>
+                <input type="radio" name="propina" id="propina10" value="10">
+            </div>
+            <div class="form-check">
+                <label>20%</label>
+                <input type="radio" name="propina" id="propina20" value="20">
+            </div>
+            <div class="form-check">
+                <label>50%</label>
+                <input type="radio" name="propina" id="propina50" value="50">
+            </div>
+            
+            <div class="my-4">
+                <p class="total-comida fw-bold">Total Pedidos: <span class="fw-normal"></span></p>
+                <p class="total-propina fw-bold">Total Propinas: <span class="fw-normal"></span></p>
+                <p class="total-pagar fw-bold">Total a Pagar: <span class="fw-normal"></span></p>
+            </div>
+        </div>
+    </template>
+
+    <template class="items-list">
+        <li class="list-group-item">
+            <h4 class="text-center my-4"></h4>
+            <p class="title-item item-cantidad fw-bold">Cantidad: <span class="fw-normal"></span></p>
+            <p class="title-item item-precio fw-bold">Precio: <span class="fw-normal"></span></p>
+            <p class="title-item item-subtotal fw-bold">Subtotal: <span class="fw-normal"></span></p>
+            <button class="btn btn-danger">Eliminar Pedido</button>
+        </li>
+    </template>
+    
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
